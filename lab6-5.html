@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+</head>
+
+
+
+<body>
+    <img src="" id="image" style="height: 300px; width: auto;">
+    <h3 id="desc"></h3>
+
+    <button id="gen" onclick="thefunc()">Randomize</button>
+    <table border="1px" style="border-style: dotted;">
+        <tr>
+            <td>Ys jagan mohan reddy</td>
+            <td id="1">0</td>
+        </tr>
+        <tr>
+            <td>Ys raja sekhar reddy</td>
+            <td id="2">0</td>
+        </tr>
+        <tr>
+            <td>J Jayalalitha</td>
+            <td id="3">0</td>
+        </tr>
+        <tr>
+            <td>K chandra shekar rao</td>
+            <td id="4">0</td>
+        </tr>
+        <tr>
+            <td>M karuna nidhi</td>
+            <td id="5">0</td>
+        </tr>
+        
+        
+        
+        
+    </table>
+
+    <script>
+        var n = {"1": 0,"2": 0,"3": 0,"4": 0,"5": 0,}
+
+        var texts = ["Ys jagan mohan reddy","Ys raja sekhar reddy","J Jayalalitha","K chandra shekar rao","M karuna nidhi"]
+
+        var images = [
+            "https://images.outlookindia.com/public/uploads/articles/2020/4/17/YS-jagan_20191031_570_850.jpg",
+            "https://image.winudf.com/v2/image/Y29tLnd3dy5EcllTUkxpdmVIRFdhbGxwYXBlcnNfc2NyZWVuc2hvdHNfMV9lOWQ0MjBhMA/screen-1.jpg?fakeurl=1&type=.jpg",
+            "https://images.indianexpress.com/2018/08/jayalalithaa-biopic-759.jpg",
+            "https://cdn.telanganatoday.com/wp-content/uploads/2020/03/KCR2.jpg",
+            "https://www.oneindia.com/politicians/image/302x100x402x1/karunanidhi-m-1310.jpg"
+            ]
+
+
+        function thefunc()
+        {
+            for(var i=0;i<10;i++)
+            {
+                setTimeout(function () {
+                    var rand = Math.floor(Math.random() * 5)
+                    if (document.getElementById(String(rand + 1)).innerText == "0") {
+                        document.getElementById(String(rand + 1)).innerText = "1"
+                        n[String(rand + 1)] = 1
+                    } else {
+                        document.getElementById(String(rand + 1)).innerText = String(parseInt(document.getElementById(String(rand + 1)).innerText) + 1)
+                        n[String(rand + 1)] = parseInt(document.getElementById(String(rand + 1)).innerText) + 1
+                    }
+                    document.getElementById('desc').innerText = texts[rand]
+                    document.getElementById("image").src = images[rand]
+                }, 2000 * i); 
+                
+                
+            }
+            
+        }
+    </script>
+</body>
+
+</html>
